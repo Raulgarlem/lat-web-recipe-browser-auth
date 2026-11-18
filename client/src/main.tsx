@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 
 import './index.css';
 import App from './components/App/App';
-import { FavoritesProvider } from './contexts/FavoritesContext';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Root element not found');
@@ -12,9 +12,9 @@ if (!rootElement) throw new Error('Root element not found');
 createRoot(rootElement).render(
   <StrictMode>
     <BrowserRouter>
-      <FavoritesProvider>
+      <AuthProvider>
         <App />
-      </FavoritesProvider>
+      </AuthProvider>
     </BrowserRouter>
   </StrictMode>,
 );
